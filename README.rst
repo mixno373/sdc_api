@@ -1,7 +1,7 @@
 sdc-api.py
 ==========
 
-Quick Example
+Installation
 --------------
 
 	pip install sdc-api
