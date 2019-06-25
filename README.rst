@@ -4,6 +4,12 @@ sdc-api.py
 Quick Example
 --------------
 
+	pip install sdc-api
+
+
+Quick Example
+--------------
+
 .. code:: py
 
 	from sdc_api import SDC
