@@ -3,9 +3,9 @@ from aiohttp import ClientSession
 from datetime import datetime, timedelta
 
 
-class Server:
+class Guild:
     def __init__(self, *args, **kwargs):
-        self.name = kwargs.get("name", "New Server")
+        self.name = kwargs.get("name", "New Guild")
         self.id = kwargs.get("id", "")
         self.description = kwargs.get("des", kwargs.get("description", ""))
         self.invite = kwargs.get("invite")
@@ -19,10 +19,10 @@ class Server:
 
 
     def __str__(self):
-        return "<Server: {0.name}, ID: {0.id}, Description: {0.description}, Invite: {0.invite}, Members: {0.online}/{0.members}, UPs: {0.ups}>".format(self)
+        return "<Guild: {0.name}, ID: {0.id}, Description: {0.description}, Invite: {0.invite}, Members: {0.online}/{0.members}, UPs: {0.ups}>".format(self)
 
     def __repr__(self):
-        return "<Server: {0.name}, ID: {0.id}, Description: {0.description}, Invite: {0.invite}, Members: {0.online}/{0.members}, UPs: {0.ups}>".format(self)
+        return "<Guild: {0.name}, ID: {0.id}, Description: {0.description}, Invite: {0.invite}, Members: {0.online}/{0.members}, UPs: {0.ups}>".format(self)
 
 
 class SDC:
@@ -84,7 +84,7 @@ class SDC:
         resp = await self._request("get", "guild", id=id)
         resp["id"] = id
         resp["api"] = self
-        return Server(**resp)
+        return Guild(**resp)
 
     async def get_place(self, id=None):
         resp = await self._request("get", "guild", id=id, special="place")
