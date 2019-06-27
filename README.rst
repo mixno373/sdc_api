@@ -1,4 +1,4 @@
-sdc-api.py
+sdc_api.py
 ==========
 
 Installation
