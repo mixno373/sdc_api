@@ -24,6 +24,9 @@ Quick Example
 	place = await guild.place()
 	print("Place of server in SDC is %d" % place)
 
+Usage
+--------------
+
 Get Guild
 
 .. code:: py
