@@ -1,11 +1,13 @@
 import setuptools
 
+from sdc_api import VERSION
+
 with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="sdc_api",
-    version="1.0.0",
+    version=VERSION,
     author="Tomori Project",
     author_email="dev@discord.band",
     description="An async wrapper for Server-Discord.Com API",
