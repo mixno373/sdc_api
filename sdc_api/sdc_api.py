@@ -32,6 +32,13 @@ class User:
         self.id = kwargs.get("id", "")
         self.votes = []
         self.total_votes = 0
+        self.warns = kwargs.get("warns", 0)
+        self.is_warned = False
+        self.is_banned = False
+        if self.warns > 0:
+            if self.warns >= 3:
+                self.is_banned = True
+            self.is_warned = True
         self._api = kwargs.get("api", SDC())
 
     async def get_votes(self):
@@ -173,3 +180,15 @@ class SDC:
                 user.votes.append(vote)
                 user.total_votes += vote.count
         return user.votes
+    
+    async def get_warns(self):
+        resp = await self._request("get", "warns")
+        if not resp:
+            return None
+        type = resp.get("type")
+        if type == "user":
+            return User(**resp)
+        elif type == "guild":
+            return Guild(**resp)
+        else:
+            return None
