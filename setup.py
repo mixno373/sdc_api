@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="sdc_api",
-    version="0.2.1",
+    version="1.0.0",
     author="Tomori Project",
     author_email="dev@discord.band",
     description="An async wrapper for Server-Discord.Com API",
