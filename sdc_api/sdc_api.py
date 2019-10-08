@@ -15,7 +15,7 @@ class Vote:
         if not isinstance(self.user, User):
             self.user = User(id=kwargs.get("user"))
 
-        self._api = kwargs.get("api", SDC())
+        self._api = kwargs.get("api", Client())
 
 
     def __str__(self):
@@ -39,7 +39,7 @@ class User:
             if self.warns >= 3:
                 self.is_banned = True
             self.is_warned = True
-        self._api = kwargs.get("api", SDC())
+        self._api = kwargs.get("api", Client())
 
     async def get_votes(self):
         return await self._api.get_user_votes(user=self)
@@ -70,7 +70,7 @@ class Guild:
         self.ups = kwargs.get("upCount", 0)
         self.votes = []
         self.total_votes = 0
-        self._api = kwargs.get("api", SDC())
+        self._api = kwargs.get("api", Client())
 
 
     async def get_place(self):
@@ -87,7 +87,7 @@ class Guild:
         return "<Guild | Name: {0.name}, ID: {0.id}, Description: {0.description}, Invite: {0.invite}, Members: {0.online}/{0.members}, UPs: {0.ups}, Votes: {0.votes}>".format(self)
 
 
-class SDC:
+class Client:
     def __init__(self, *args, **kwargs):
         self.token = kwargs.get("token")
         self.last_request = datetime.utcnow()-timedelta(seconds=3)
