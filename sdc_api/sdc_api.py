@@ -44,6 +44,13 @@ class User:
     async def get_votes(self):
         return await self._api.get_user_votes(user=self)
 
+    async def get_warns(self):
+        user = await self._api.get_user_warns(id=self.id)
+        if user:
+            return user.warns
+        else:
+            return 0
+
 
     def __str__(self):
         return "<User | Name: {0.name}#{0.discriminator}, ID: {0.id}>".format(self)
