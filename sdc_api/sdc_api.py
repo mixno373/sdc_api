@@ -188,8 +188,8 @@ class Client:
                 user.total_votes += vote.count
         return user.votes
     
-    async def get_warns(self):
-        resp = await self._request("get", "warns")
+    async def get_warns(self, id):
+        resp = await self._request("get", "warns", id=id)
         if not resp:
             return None
         type = resp.get("type")
