@@ -12,9 +12,9 @@ Quick Example
 
 .. code:: py
 
-	from sdc_api import SDC
+	from sdc_api import sdc_api, Guild, User
 	
-	sdc = SDC('dKey')
+	sdc = sdc_api.Client('dKey')
 	
 	# Get guild, where you generated dKey
 	guild = await sdc.get_guild()
