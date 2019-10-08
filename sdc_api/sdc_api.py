@@ -45,7 +45,7 @@ class User:
         return await self._api.get_user_votes(user=self)
 
     async def get_warns(self):
-        user = await self._api.get_user_warns(id=self.id)
+        user = await self._api.get_warns(id=self.id)
         if user:
             return user.warns
         else:
