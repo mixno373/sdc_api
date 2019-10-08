@@ -77,6 +77,6 @@ Get Warns
 
 .. code:: py
 
-	user = await sdc.get_user_warns('id')
+	user = await sdc.get_warns('id')
 	if user:
 	    print(user.warns)
