@@ -67,3 +67,15 @@ Get User's Votes
 .. code:: py
 
 	votes = await sdc.get_user_votes('id')
+
+Get Warns
+
+.. code:: py
+
+	user = User(id='id')
+	warns = await user.get_warns()
+
+.. code:: py
+
+	user = await sdc.get_user_warns('id')
+	print(user.warns)
